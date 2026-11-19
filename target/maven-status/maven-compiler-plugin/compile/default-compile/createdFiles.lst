@@ -1,0 +1,11 @@
+com\mayorista\model\Articulo.class
+com\mayorista\dao\ArticuloDAO.class
+com\mayorista\model\DetalleFactura.class
+com\mayorista\model\Proveedor.class
+com\mayorista\observer\StockObserver.class
+com\mayorista\Main.class
+com\mayorista\model\Factura.class
+com\mayorista\model\Cliente.class
+com\mayorista\config\JPAUtil.class
+com\mayorista\observer\AlertaStockListener.class
+com\mayorista\model\Rubro.class

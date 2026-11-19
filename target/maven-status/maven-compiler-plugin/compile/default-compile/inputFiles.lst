@@ -1,0 +1,11 @@
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\config\JPAUtil.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\dao\ArticuloDAO.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\Main.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\Articulo.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\Cliente.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\DetalleFactura.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\Factura.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\Proveedor.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\model\Rubro.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\observer\AlertaStockListener.java
+C:\Users\soldi\Downloads\TPI_GestionStock\src\main\java\com\mayorista\observer\StockObserver.java
