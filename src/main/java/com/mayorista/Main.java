@@ -9,12 +9,21 @@ import com.mayorista.observer.StockObserver;
 import java.util.List; 
 import java.util.Scanner; 
 
+import com.mayorista.gui.MainFrame; 
+import javax.swing.SwingUtilities;
+
 public class Main { 
     private static ArticuloDAO dao = new ArticuloDAO(); 
     private static StockObserver alertaObserver = new AlertaStockListener(); 
     private static int contadorFacturas = 1; 
     
     public static void main(String[] args) { 
+        // Iniciar la Interfaz Gráfica de Usuario (Swing) 
+        SwingUtilities.invokeLater(() -> { 
+            MainFrame frame = new MainFrame(); 
+            frame.setVisible(true); 
+        }); 
+    
         inicializarBaseDeDatos(); 
         Scanner scanner = new Scanner(System.in); 
         int opcion = -1; 
@@ -53,22 +62,36 @@ public class Main {
     
     private static void inicializarBaseDeDatos() { 
         if (dao.obtenerTodosArticulos().isEmpty()) { 
+            // Rubros 
             Rubro r1 = new Rubro(1, "Procesadores", "CPUs de alta gama"); 
-            Rubro r2 = new Rubro(2, "Placas de Video", "GPUs para gaming"); 
-            dao.guardar(r1); 
-            dao.guardar(r2); 
+            Rubro r2 = new Rubro(2, "Placas de Video", "GPUs para gaming y diseño"); 
+            Rubro r3 = new Rubro(3, "Almacenamiento", "Discos SSD y NVMe"); 
+            Rubro r4 = new Rubro(4, "Memorias RAM", "Módulos DDR4 y DDR5"); 
+            Rubro r5 = new Rubro(5, "Monitores", "Pantallas gamer y profesionales"); 
             
+            dao.guardar(r1); dao.guardar(r2); dao.guardar(r3); dao.guardar(r4); dao.guardar(r5); 
+            
+            // Proveedores 
             Proveedor p1 = new Proveedor(101, "30-71123456-8", "TechSupplier S.A.", "Av. Corrientes 1234", "011-45678900", "contacto@techsupplier.com"); 
-            dao.guardar(p1); 
+            Proveedor p2 = new Proveedor(102, "30-98765432-1", "CompuWorld Mayorista", "Av. Santa Fe 4321", "011-11223344", "ventas@compuworld.com"); 
             
+            dao.guardar(p1); dao.guardar(p2); 
+            
+            // Cliente inicial 
             Cliente c1 = new Cliente(501, "Gómez", "Lucas", "38123456", "Calle Falsa 123", "2324-556677", "lucas.gomez@email.com"); 
             dao.guardar(c1); 
-
-            dao.guardar(new Articulo(10, "Intel Core i7-13700K", r1, p1, 15, 5, 450.0)); 
-            dao.guardar(new Articulo(11, "AMD Ryzen 5 7600X", r1, p1, 4, 5, 280.0)); 
-            dao.guardar(new Articulo(12, "NVIDIA RTX 4070 12GB", r2, p1, 8, 3, 650.0)); 
-        } 
-    } 
+            
+            // Catálogo de 10 Artículos (Precios en ARS) 
+            dao.guardar(new Articulo(10, "Intel Core i7-13700K", r1, p1, 15, 5, 520000.0)); 
+            dao.guardar(new Articulo(11, "AMD Ryzen 5 7600X", r1, p1, 3, 5, 340000.0)); // ⚠️ Stock Crítico 
+            dao.guardar(new Articulo(12, "NVIDIA RTX 4070 12GB", r2, p1, 8, 3, 980000.0)); 
+            dao.guardar(new Articulo(13, "AMD Radeon RX 6700 XT", r2, p2, 2, 4, 610000.0)); // ⚠️ Stock Crítico 
+            dao.guardar(new Articulo(14, "SSD NVMe Kingston 1TB", r3, p2, 25, 10, 85000.0)); 
+            dao.guardar(new Articulo(15, "SSD Samsung 980 Pro 2TB", r3, p1, 4, 6, 210000.0)); // ⚠️ Stock Crítico 
+            dao.guardar(new Articulo(16, "RAM Corsair Vengeance 16GB DDR5", r4, p2, 30, 8, 95000.0)); 
+            dao.guardar(new Articulo(17, "RAM Kingston Fury 8GB DDR4", r4, p2, 6, 10, 42000.0)); // ⚠️ Stock Crítico 
+            dao.guardar(new Articulo(18, "Monitor LG UltraGear 27\" 144Hz", r5, p1, 12, 4, 380000.0)); 
+            dao.guardar(new Articulo(19, "Fuente ASUS ROG 850W Gold", r5, p1, 10, 3, 240000.0)); } } 
     
     private static void listarArticulos() { 
         System.out.println(" LISTADO DE ARTÍCULOS EN BASE DE DATOS "); 
